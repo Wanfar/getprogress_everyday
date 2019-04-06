@@ -1,0 +1,7 @@
+import requests
+import lxml.html
+source = requests.get('http://www.njau.edu.cn/').content
+selector = lxml.html.fromstring(source)
+url_ny = selector.xpath('//p[@class="news_title"]/a/text()')
+for url_nys in url_ny:
+    print(url_nys)
